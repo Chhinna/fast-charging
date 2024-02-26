@@ -10,10 +10,10 @@ class BayesGap(object):
 	def __init__(self, args):
 
 		self.policy_file = os.path.join(args.data_dir, args.policy_file)
-		self.prev_arm_bounds_file = os.path.join(args.data_dir, args.arm_bounds_dir, str(args.round_idx-1) + '.pkl') # note this is for previous round
-		self.prev_early_pred_file = os.path.join(args.data_dir, args.early_pred_dir, str(args.round_idx-1) + '.csv') # note this is for previous round
-		self.arm_bounds_file = os.path.join(args.data_dir, args.arm_bounds_dir, str(args.round_idx) + '.pkl')
-		self.next_batch_file = os.path.join(args.data_dir, args.next_batch_dir, str(args.round_idx) + '.csv')
+		self.prev_arm_bounds_file = os.path.join(args.data_dir, args.arm_bounds_dir, f'{str(args.round_idx - 1)}.pkl') # note this is for previous round
+		self.prev_early_pred_file = os.path.join(args.data_dir, args.early_pred_dir, f'{str(args.round_idx - 1)}.csv') # note this is for previous round
+		self.arm_bounds_file = os.path.join(args.data_dir, args.arm_bounds_dir, f'{str(args.round_idx)}.pkl')
+		self.next_batch_file = os.path.join(args.data_dir, args.next_batch_dir, f'{str(args.round_idx)}.csv')
 
 		self.param_space = self.get_parameter_space()
 		self.num_arms = self.param_space.shape[0]
@@ -147,7 +147,7 @@ class BayesGap(object):
 		nonstd_lower_bounds = lower_bounds+self.standardization_mean
 		for ((policy_id, policy_param), ub, lb, mean) in zip(enumerate(param_space), nonstd_upper_bounds, nonstd_lower_bounds, (nonstd_upper_bounds+nonstd_lower_bounds)/2):
 			print(policy_id, policy_param, ub, lb, mean, sep='\t')
-		with open(arm_bounds_file[:-4]+'_bounds.pkl', 'wb') as outfile:
+		with open(f'{arm_bounds_file[:-4]}_bounds.pkl', 'wb') as outfile:
 			pickle.dump([param_space, nonstd_upper_bounds, nonstd_lower_bounds, (nonstd_upper_bounds+nonstd_lower_bounds)/2], outfile)
 
 		print('Round', round_idx)
@@ -301,9 +301,9 @@ def main():
                           str(args.epsilon)    + ',' +
                           str(args.seed))
 		elif args.round_idx == args.budget:
-         		log_file.write(',' + str(lifetime_best_arm) + '\n')
+         		log_file.write(f',{str(lifetime_best_arm)}\n')
 		else:
-         		log_file.write(',' + str(lifetime_best_arm))
+         		log_file.write(f',{str(lifetime_best_arm)}')
 
 if __name__ == '__main__':
 

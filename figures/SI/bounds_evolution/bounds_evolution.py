@@ -109,9 +109,9 @@ for k, mean in enumerate(means):
             ax.set_ylabel('Est. cycle life before\nround 1, $\mathit{μ_{0,i}±σ_{0,i}}$')
     else:
         if plot_bounds_with_beta:
-            mathstr = '{μ_{'+str(k)+',i}±β_{'+str(k)+'}σ_{'+str(k)+',i}}'
+            mathstr = f'{{μ_{{{str(k)},i}}±β_{{{str(k)}}}σ_{{{str(k)},i}}}}'
         else:
-            mathstr = '{μ_{'+str(k)+',i}±σ_{'+str(k)+',i}}'
+            mathstr = f'{{μ_{{{str(k)},i}}±σ_{{{str(k)},i}}}}'
         ax.set_ylabel('Est. cycle life after\n round {}, $\mathit'.format(k)+mathstr+'$')
     ax.set_xticks([], [])
     ax.set_title(chr(97+k), loc='left', weight='bold')

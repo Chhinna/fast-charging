@@ -53,10 +53,10 @@ policies = policies[0:count]
 valid_policies = valid_policies[0:valid_count]
 
 # Update user
-print('Count = ' + str(count))
-print('Valid count = ' + str(valid_count))
+print(f'Count = {str(count)}')
+print(f'Valid count = {str(valid_count)}')
 
 ## Save policies
-np.savetxt(os.path.join(DIR, 'policies_' + FILENAME + '.csv'), valid_policies, delimiter=',', fmt='%1.3f')
+np.savetxt(os.path.join(DIR, f'policies_{FILENAME}.csv'), valid_policies, delimiter=',', fmt='%1.3f')
 
 surface_points.plot_surface(C1, C2, C3, C4_LIMITS, DIR, FILENAME)

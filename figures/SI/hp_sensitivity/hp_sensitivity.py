@@ -110,7 +110,7 @@ for k, gamma in enumerate(sims.gamma.unique()):
     
     temp_ax.set_title(chr(k+97),loc='left', weight='bold',fontsize=FS)
     
-    temp_ax.annotate('γ=' + str(gamma), (15, 0.95), fontsize=FS,horizontalalignment='right')
+    temp_ax.annotate(('γ=' + str(gamma),) (15, 0.95), fontsize=FS,horizontalalignment='right')
     
     # Add xlabel/xticks
     if int(k/4)==1 or k==3:

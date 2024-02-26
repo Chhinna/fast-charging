@@ -244,7 +244,7 @@ for k,pol in enumerate(validation_policies):
     protocol_life_str = '{0}C-{1}C-{2}C-{3:.3f}C: {4:.0f}'.format(CC1, CC2, CC3, CC4,
            final_means[k])
     if final_idx[k]==0:
-        ax4.annotate(protocol_life_str+" cycles",(10,9-final_idx[k]),
+        ax4.annotate(f'{protocol_life_str} cycles',(10,9-final_idx[k]),
                      verticalalignment='center')
     else:
         ax4.annotate(protocol_life_str,(10,9-final_idx[k]),

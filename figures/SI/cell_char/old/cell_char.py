@@ -64,7 +64,7 @@ for k in range(n_cycles):
     Qc_cycle.append(Qc[step_indices] - Qc[step_indices[0]])
     T_cycle.append(T[step_indices])
 
-    I_leg.append(str(int(np.mean(I_cycle[k]))) + 'C') # find charge C rate
+    I_leg.append(f'{str(int(np.mean(I_cycle[k])))}C') # find charge C rate
 
 cmap = plt.get_cmap('Reds')
 ax[0][0].set_color_cycle([cmap(1.*i/n_cycles) for i in range(n_cycles)])
@@ -121,7 +121,7 @@ for k in range(n_cycles):
     T_cycle.append(T[step_indices])
 
 for k in range(n_cycles):
-    I_leg.append(str(-int(np.round(np.mean(I_cycle[k])))) + 'C') # find discharge C rate
+    I_leg.append(f'{str(-int(np.round(np.mean(I_cycle[k]))))}C') # find discharge C rate
     
 cmap = plt.get_cmap('Blues')
 ax[0][1].set_color_cycle([cmap(1.*i/n_cycles) for i in range(n_cycles)])
