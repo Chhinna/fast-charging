@@ -40,7 +40,7 @@ predicted_lifetimes = pred_data[:,3:]
 validation_pol_leg = []
 for p in validation_policies:
     c4 = 0.2/(1/6 - (0.2/p[0] + 0.2/p[1] + 0.2/p[2]))
-    validation_pol_leg.append(str(p[0])+'C-'+str(p[1])+'C-'+str(p[2])+'C-'+'{0:.3f}C'.format(c4))
+    validation_pol_leg.append(f"{str(p[0])}C-{str(p[1])}C-{str(p[2])}C-{'{0:.3f}C'.format(c4)}")
 
 # Load final results
 filename = 'final_results.csv'
@@ -70,30 +70,29 @@ std_stdev = np.std(final_lifetimes)
 std_pred = np.nanstd(final_lifetimes - predicted_lifetimes)
 std_sampling = np.mean(np.std(final_lifetimes,axis=1))
 eta = np.sqrt(std_pred**2 + std_sampling**2)
-print('Standardization mean = ' + str(std_mean))
-print('Standardization stdev = '  + str(std_stdev))
-print('sigma_pred = '  + str(std_pred))
-print('sigma_sampling = '  + str(std_sampling))
-print('eta = '  + str(eta))
+print(f'Standardization mean = {str(std_mean)}')
+print(f'Standardization stdev = {str(std_stdev)}')
+print(f'sigma_pred = {str(std_pred)}')
+print(f'sigma_sampling = {str(std_sampling)}')
+print(f'eta = {str(eta)}')
 print()
 
 # calculate early prediction error
 rmse = np.sqrt(np.nanmean(((predicted_lifetimes - final_lifetimes) ** 2)))
-print('RMSE = ' + str(rmse) + ' cycles')
+print(f'RMSE = {str(rmse)} cycles')
 
 mape = np.nanmean( np.abs(predicted_lifetimes - final_lifetimes) /final_lifetimes) * 100
-print('MAPE = ' + str(mape) + '%')
+print(f'MAPE = {str(mape)}%')
 
 # calculate bias-corrected early prediction error
 predicted_lifetimes_bias_corrected = predicted_lifetimes \
   - np.nanmean(predicted_lifetimes) + np.nanmean(final_lifetimes)
-print('Bias correction: ' + str(np.nanmean(final_lifetimes) - \
-                                np.nanmean(predicted_lifetimes)) + ' cycles')
+print(f'Bias correction: {str(np.nanmean(final_lifetimes) - np.nanmean(predicted_lifetimes))} cycles')
 rmse = np.sqrt(np.nanmean(((predicted_lifetimes_bias_corrected - final_lifetimes) ** 2)))
-print('RMSE = ' + str(rmse) + ' cycles (bias-corrected)')
+print(f'RMSE = {str(rmse)} cycles (bias-corrected)')
 
 mape = np.nanmean( np.abs(predicted_lifetimes_bias_corrected - final_lifetimes) /final_lifetimes) * 100
-print('MAPE = ' + str(mape) + '% (bias-corrected)')
+print(f'MAPE = {str(mape)}% (bias-corrected)')
 
 # Summary statistics
 pred_means = np.round(np.nanmean(predicted_lifetimes,axis=1))

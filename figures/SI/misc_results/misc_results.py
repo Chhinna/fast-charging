@@ -94,7 +94,7 @@ batches = np.arange(n_batches-1)+1
 
 cm = plt.get_cmap('winter')
 
-legend = ['K = ' + str(k) for k in top_K_pols_list]
+legend = [f'K = {str(k)}' for k in top_K_pols_list]
 
 ax0.set_color_cycle([cm(1.*i/len(top_K_pols_list)) for i in range(len(top_K_pols_list))])
 for i in range(len(top_K_pols_list)-1):

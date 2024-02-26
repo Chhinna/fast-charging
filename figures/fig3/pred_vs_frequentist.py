@@ -71,7 +71,7 @@ cm = plt.get_cmap('winter')
 colors = [cm(1.*i/5) for i in np.arange(5)]
 colors[0] = (0,0,0,1)
 
-leg = [str(i)+" repetitions" for i in np.arange(5)]
+leg = [f'{str(i)} repetitions' for i in np.arange(5)]
 leg[1] = "1 repetition"
 
 for k in np.arange(1, 5):

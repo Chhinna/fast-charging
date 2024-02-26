@@ -51,7 +51,7 @@ rcParams['font.sans-serif'] = ['Arial']
 
 
 def text(x1,y1,x2,y2,k):
-    ax.annotate("Round "+str(k+1), xy=(x2, y1), xycoords='figure fraction',
+    ax.annotate(f'Round {str(k + 1)}', xy=(x2, y1), xycoords='figure fraction',
                 xytext=(x1, y1), textcoords='figure fraction',
                 size=20, va="center", ha="center",
                 bbox=dict(boxstyle="round", fc="w"))

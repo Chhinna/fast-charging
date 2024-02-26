@@ -73,7 +73,7 @@ for k in [2,4,6,8]:
 # CC labels
 label_height = 9.2
 for k in np.arange(4):
-    ax1.text(10+20*k,label_height,'CC'+str(k+1), horizontalalignment='center')
+    ax1.text(10+20*k,label_height,f'CC{str(k + 1)}', horizontalalignment='center')
 ax1.text(90,label_height,'CC5-CV1', horizontalalignment='center')
 
 # Add 1C charging

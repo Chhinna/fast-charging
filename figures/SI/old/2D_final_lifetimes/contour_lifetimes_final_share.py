@@ -102,7 +102,7 @@ for k, c3 in enumerate(C3list):
     #if c3 == one_step:
     #    plt.scatter(one_step,one_step,c='k',marker='s',zorder=3,s=100)
     temp_ax.set_title(chr(k+97),loc='left', weight='bold',fontsize=FS)
-    temp_ax.annotate('CC3=' + str(c3) + '\n' + str(len(policy_subset)) + ' policies',\
+    temp_ax.annotate(f'CC3={str(c3)}\n{str(len(policy_subset))} policies',\
               (3.52, 3.52), fontsize=FS)
     if int(k/3)==1:
         temp_ax.set_xlabel('CC1',fontsize=FS)

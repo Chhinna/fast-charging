@@ -105,7 +105,7 @@ batches = np.arange(n_batches-1)+1
 
 cm = plt.get_cmap('winter')
 
-legend = ['K = ' + str(k) for k in top_K_pols_list]
+legend = [f'K = {str(k)}' for k in top_K_pols_list]
 
 ax0.set_color_cycle([cm(1.*i/len(top_K_pols_list)) for i in range(len(top_K_pols_list))])
 for i in range(len(top_K_pols_list)-1):
@@ -196,7 +196,7 @@ for k, pol in enumerate(param_space[top_pol_idx]):
 colors = [cm(1.*i/num_batches) for i in range(num_batches)]
 colors[0] = (0,0,0,1)
 
-leg = [str(i)+" repetitions" for i in np.arange(num_batches)]
+leg = [f'{str(i)} repetitions' for i in np.arange(num_batches)]
 leg[1] = "1 repetition"
 
 for k in np.arange(num_batches):

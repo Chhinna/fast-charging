@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 def plot_surface(C1, C2, C3, C4_LIMITS, DIR, filename):
     
     # Import policies
-    policies = np.genfromtxt(os.path.join(DIR, 'policies_' + filename + '.csv'), delimiter=',')
+    policies = np.genfromtxt(os.path.join(DIR, f'policies_{filename}.csv'), delimiter=',')
     
     COLOR_LIM = [2.5,4.8]
     
@@ -64,7 +64,7 @@ def plot_surface(C1, C2, C3, C4_LIMITS, DIR, filename):
         policy_subset = policies[idx_subset,:][0]
         plt.scatter(policy_subset[:,0],policy_subset[:,1],c='k',zorder=2,s=50)
         
-        plt.title('CC3=' + str(c3) + ': ' + str(len(policy_subset)) + ' policies',fontsize=16)
+        plt.title(f'CC3={str(c3)}: {str(len(policy_subset))} policies',fontsize=16)
         plt.xlabel('CC1')
         plt.ylabel('CC2')
         plt.xlim((min(C1)-margin, max(C1)+margin))
@@ -85,5 +85,5 @@ def plot_surface(C1, C2, C3, C4_LIMITS, DIR, filename):
     cbar.ax.set_title('CC4')
     
     ## SAVE FIGURE
-    plt.savefig(os.path.join(DIR, 'surface_' + filename + '.png'), bbox_inches='tight')
+    plt.savefig(os.path.join(DIR, f'surface_{filename}.png'), bbox_inches='tight')
     

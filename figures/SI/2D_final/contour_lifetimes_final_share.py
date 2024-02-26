@@ -93,7 +93,7 @@ for k, c3 in enumerate(C3list):
 
     ## LABELS
     temp_ax.set_title(chr(k+97),loc='left', weight='bold',fontsize=FS)
-    temp_ax.annotate('CC3=' + str(c3) + '\n' + str(len(policy_subset)) + ' protocols',\
+    temp_ax.annotate(f'CC3={str(c3)}\n{str(len(policy_subset))} protocols',\
               (3.52, 3.52), fontsize=FS)
     if int(k/3)==1:
         temp_ax.set_xlabel('CC1',fontsize=FS)
